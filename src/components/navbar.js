@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 
 const Nav = styled.nav`
-  background-color: #f2f2f2;
+  background-color: black;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -20,6 +20,7 @@ const NavList = styled.ul`
 
 const NavItem = styled.li`
   margin-right: 10px;
+  padding-right: 30px;
 
   &:last-child {
     margin-right: 0;
@@ -28,11 +29,16 @@ const NavItem = styled.li`
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  color: #333;
+  color:orange;
   font-weight: bold;
+  transition: color 0.3s  ease-in-out, transform 0.8s ease;
+  transform: scale(1.2);
 
   &:hover {
     color: #555;
+    transform: scale(0.7);
+    color: lightblue;
+    text-decoration-color: antiquewhite;
   }
 `
 

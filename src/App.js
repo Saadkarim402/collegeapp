@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Homepage from "./components/Homepage";
-import TodoList from "./components/TodoList";
+import TodoList from "./components/Todolist/TodoList1";
 import Scheduler from "./components/Scheduler";
 import MarksManager from "./components/MarksManager";
 import Attendance from "./components/Attendance";
