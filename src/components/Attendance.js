@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const AppContainer = styled.div`
   opacity: ${(props) => (props.show ? 1 : 0)};
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
 `;
 
 const StyledApp = styled.div`
@@ -131,7 +131,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowApp(true);
-    }, 500);
+    }, 10);
   }, []);
 
   const handleInputChange = (event) => {

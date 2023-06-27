@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const Nav = styled.nav`
   background: white;
@@ -8,6 +8,16 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
 `;
 
 const NavList = styled.ul`
@@ -55,6 +65,28 @@ const HamburgerIcon = styled.div`
   }
 `;
 
+const slideDown = keyframes`
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+
+const slideUp = keyframes`
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+`;
+
 const HamburgerMenu = styled.div`
   position: fixed;
   top: 0;
@@ -67,7 +99,8 @@ const HamburgerMenu = styled.div`
   align-items: center;
   justify-content: center;
   padding: 20px;
-  z-index: 9999; /* Add a high z-index to ensure it appears on top */
+  z-index: 9999;
+  animation: ${({ isOpen }) => (isOpen ? slideDown : slideUp)} 0.5s ease-in-out forwards;
 
   @media (min-width: 769px) {
     display: none;
@@ -161,6 +194,5 @@ function Navbar() {
     </Nav>
   );
 }
-
 
 export default Navbar;
