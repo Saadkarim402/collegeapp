@@ -2,9 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-
 const Nav = styled.nav`
-  background-color: black;
+  background: white;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -21,6 +20,7 @@ const NavList = styled.ul`
 const NavItem = styled.li`
   margin-right: 10px;
   padding-right: 30px;
+  font-size: 15px;
 
   &:last-child {
     margin-right: 0;
@@ -28,43 +28,52 @@ const NavItem = styled.li`
 `;
 
 const NavLink = styled(Link)`
+  color: black;
   text-decoration: none;
-  color:orange;
-  font-weight: bold;
-  transition: color 0.3s  ease-in-out, transform 0.8s ease;
-  transform: scale(1.2);
+  font-weight: 600;
+  transition: color 0.3s ease-in-out, transform 0.2s ease;
 
   &:hover {
-    color: #555;
-    transform: scale(0.7);
-    color: lightblue;
+    color: orange;
     text-decoration-color: antiquewhite;
   }
-`
+`;
+
+const ResponsiveNavList = styled(NavList)`
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+
+const ResponsiveNavItem = styled(NavItem)`
+  padding-right: 0;
+  margin-bottom: 10px;
+`;
 
 function Navbar() {
   return (
-       <Nav>
-      <NavList>
-        <NavItem>
+    <Nav>
+      <ResponsiveNavList>
+        <ResponsiveNavItem>
           <NavLink to="/">Home</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="TodoList">Todo List</NavLink>
-        </NavItem>
-        <NavItem>
+        </ResponsiveNavItem>
+        <ResponsiveNavItem>
+          <NavLink to="/TodoList">Todo List</NavLink>
+        </ResponsiveNavItem>
+        <ResponsiveNavItem>
           <NavLink to="/scheduler">Scheduler</NavLink>
-        </NavItem>
-        <NavItem>
+        </ResponsiveNavItem>
+        <ResponsiveNavItem>
           <NavLink to="/marks">Marks Manager</NavLink>
-        </NavItem>
-        <NavItem>
+        </ResponsiveNavItem>
+        <ResponsiveNavItem>
           <NavLink to="/attendance">Attendance</NavLink>
-        </NavItem>
-        <NavItem>
+        </ResponsiveNavItem>
+        <ResponsiveNavItem>
           <NavLink to="/timetable">Timetable</NavLink>
-        </NavItem>
-      </NavList>
+        </ResponsiveNavItem>
+      </ResponsiveNavList>
     </Nav>
   );
 }

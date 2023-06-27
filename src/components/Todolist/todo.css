@@ -1,20 +1,18 @@
-body {
-    background: linear-gradient(
-      90deg,
-      rgba(48, 16, 255, 1) 0%,
-      rgb(214, 64, 214) 100%
-    );
-  }
+.todo1{
+  background-color: #0795fa;
+}
   .todo-app {
     display: flex;
     flex-direction: column;
     justify-content: start;
     width: 520px;
     min-height: 600px;
-    background: #161a2b;
+    background: black;
     text-align: center;
-    margin: 128px auto;
-    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-radius: 20px;
     padding-bottom: 32px;
   }
   
