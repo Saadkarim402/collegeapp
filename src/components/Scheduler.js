@@ -35,13 +35,11 @@ const FeatureTitle = styled.h2`
   margin-bottom: 10px;
 `;
 
-
-
 const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 20px;
 `;
 
@@ -52,6 +50,18 @@ const FeatureItem = styled.li`
   font-size: 18px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+`;
+
+const FeatureContent = styled.div`
+  flex: 1;
+`;
+
+const FeatureImage = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const FeatureLink = styled(Link)`
@@ -61,6 +71,21 @@ const FeatureLink = styled(Link)`
 
   &:hover {
     color: orange;
+  }
+`;
+
+const GetStartedButton = styled.button`
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: orange;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: darkorange;
   }
 `;
 
@@ -82,6 +107,7 @@ function HomePage() {
     <HomePageContainer>
       <SectionContainer>
         <Heading>Welcome to College App</Heading>
+        
         <p>
           College App is a comprehensive platform designed to enhance your college experience
           by providing various features and tools for students and faculty members.
@@ -97,25 +123,88 @@ function HomePage() {
         <FeatureTitle>Key Features</FeatureTitle>
         <FeatureList>
           <FeatureItem>
-            <FeatureLink to="/todo">Todo List</FeatureLink>: Stay organized by creating and managing your tasks and assignments.
+            <FeatureContent>
+              <h3>Todo List</h3>
+              <p>Stay organized by creating and managing your tasks and assignments. Keep track of deadlines and prioritize your work.</p>
+              <FeatureLink to="/todo">
+                <GetStartedButton>Get Started</GetStartedButton>
+              </FeatureLink>
+            </FeatureContent>
+            <FeatureImage>
+              <img src="todo-image.jpg" alt="Todo List" />
+            </FeatureImage>
           </FeatureItem>
           <FeatureItem>
-            <FeatureLink to="/marks">Marks Manager</FeatureLink>: Keep track of your academic performance by recording and monitoring your grades.
+            <FeatureContent>
+              <h3>Marks Manager</h3>
+              <p>Keep track of your academic performance by recording and monitoring your grades. Calculate your overall percentage and evaluate your progress.</p>
+              <FeatureLink to="/marks">
+                <GetStartedButton>Get Started</GetStartedButton>
+              </FeatureLink>
+            </FeatureContent>
+            <FeatureImage>
+              <img src="marks-image.jpg" alt="Marks Manager" />
+            </FeatureImage>
           </FeatureItem>
           <FeatureItem>
-            <FeatureLink to="/attendance">Attendance Manager</FeatureLink>: Easily track your attendance in classes and receive notifications for upcoming classes or absences.
+            <FeatureContent>
+              <h3>Attendance Manager</h3>
+              <p>Easily track your attendance in classes and receive notifications for upcoming classes or absences. Stay informed about your attendance percentage.</p>
+              <FeatureLink to="/attendance">
+                <GetStartedButton>Get Started</GetStartedButton>
+              </FeatureLink>
+            </FeatureContent>
+            <FeatureImage>
+              <img src="attendance-image.jpg" alt="Attendance Manager" />
+            </FeatureImage>
           </FeatureItem>
           <FeatureItem>
-            <FeatureLink to="/notes">Notes App</FeatureLink>: Create and store your class notes in a digital format for easy access and organization.
+            <FeatureContent>
+              <h3>Notes App</h3>
+              <p>Create and store your class notes in a digital format for easy access and organization. Take notes during lectures and revise them anytime.</p>
+              <FeatureLink to="/notes">
+                <GetStartedButton>Get Started</GetStartedButton>
+              </FeatureLink>
+            </FeatureContent>
+            <FeatureImage>
+              <img src="notes-image.jpg" alt="Notes App" />
+            </FeatureImage>
           </FeatureItem>
           <FeatureItem>
-            <FeatureLink to="/schedule">Schedule Setter</FeatureLink>: Generate a personalized class schedule and resolve any conflicts.
+            <FeatureContent>
+              <h3>Schedule Setter</h3>
+              <p>Generate a personalized class schedule and resolve any conflicts. Plan your courses and manage your timetable efficiently.</p>
+              <FeatureLink to="/schedule">
+                <GetStartedButton>Get Started</GetStartedButton>
+              </FeatureLink>
+            </FeatureContent>
+            <FeatureImage>
+              <img src="schedule-image.jpg" alt="Schedule Setter" />
+            </FeatureImage>
           </FeatureItem>
           <FeatureItem>
-            <FeatureLink to="/timetable">Timetable</FeatureLink>: Visualize your weekly class schedule in a structured format.
+            <FeatureContent>
+              <h3>Timetable</h3>
+              <p>Visualize your weekly class schedule in a structured format. See all your classes and their timings at a glance.</p>
+              <FeatureLink to="/timetable">
+                <GetStartedButton>Get Started</GetStartedButton>
+              </FeatureLink>
+            </FeatureContent>
+            <FeatureImage>
+              <img src="timetable-image.jpg" alt="Timetable" />
+            </FeatureImage>
           </FeatureItem>
           <FeatureItem>
-            <FeatureLink to="/forum">Discussion Forum</FeatureLink>: Engage in academic discussions and collaborate with peers.
+            <FeatureContent>
+              <h3>Discussion Forum</h3>
+              <p>Engage in academic discussions and collaborate with peers. Share ideas, ask questions, and contribute to the learning community.</p>
+              <FeatureLink to="/forum">
+                <GetStartedButton>Get Started</GetStartedButton>
+              </FeatureLink>
+            </FeatureContent>
+            <FeatureImage>
+              <img src="forum-image.jpg" alt="Discussion Forum" />
+            </FeatureImage>
           </FeatureItem>
         </FeatureList>
       </FeatureSection>

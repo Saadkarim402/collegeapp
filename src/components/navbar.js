@@ -35,6 +35,7 @@ const NavItem = styled.li`
   margin-right: 10px;
   padding-right: 30px;
   font-size: 15px;
+  position: relative;
 
   &:last-child {
     margin-right: 0;
@@ -50,6 +51,37 @@ const NavLink = styled(Link)`
   &:hover {
     color: orange;
     text-decoration-color: antiquewhite;
+  }
+`;
+
+const Dropdown = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  ${NavItem}:hover & {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const DropdownItem = styled(NavLink)`
+  color: black;
+  font-weight: normal;
+  font-size: 14px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+
+  &:hover {
+    background-color: #f7f7f7;
   }
 `;
 
@@ -144,6 +176,10 @@ function Navbar() {
           <NavLink to="/marks" onClick={handleLinkClick}>
             Marks Manager
           </NavLink>
+          <Dropdown>
+            <DropdownItem to="/marks/report">Report</DropdownItem>
+            <DropdownItem to="/marks/graph">Graph</DropdownItem>
+          </Dropdown>
         </NavItem>
         <NavItem>
           <NavLink to="/attendance" onClick={handleLinkClick}>
@@ -154,11 +190,13 @@ function Navbar() {
           <NavLink to="/timetable" onClick={handleLinkClick}>
             Timetable
           </NavLink>
+          <Dropdown>
+            <DropdownItem to="/timetable/week">Weekly</DropdownItem>
+            <DropdownItem to="/timetable/month">Monthly</DropdownItem>
+          </Dropdown>
         </NavItem>
       </NavList>
-      <HamburgerIcon onClick={toggleMenu}>
-        S
-      </HamburgerIcon>
+      <HamburgerIcon onClick={toggleMenu}>S</HamburgerIcon>
       <HamburgerMenu isOpen={isOpen}>
         <HamburgerMenuItem>
           <NavLink to="/" onClick={handleLinkClick}>
@@ -179,6 +217,10 @@ function Navbar() {
           <NavLink to="/marks" onClick={handleLinkClick}>
             Marks Manager
           </NavLink>
+          <Dropdown>
+            <DropdownItem to="/marks/report">Report</DropdownItem>
+            <DropdownItem to="/marks/graph">Graph</DropdownItem>
+          </Dropdown>
         </HamburgerMenuItem>
         <HamburgerMenuItem>
           <NavLink to="/attendance" onClick={handleLinkClick}>
@@ -189,6 +231,10 @@ function Navbar() {
           <NavLink to="/timetable" onClick={handleLinkClick}>
             Timetable
           </NavLink>
+          <Dropdown>
+            <DropdownItem to="/timetable/week">Weekly</DropdownItem>
+            <DropdownItem to="/timetable/month">Monthly</DropdownItem>
+          </Dropdown>
         </HamburgerMenuItem>
       </HamburgerMenu>
     </Nav>
