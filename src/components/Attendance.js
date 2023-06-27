@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+
+
+const AppContainer = styled.div`
+  opacity: ${(props) => (props.show ? 1 : 0)};
+  transition: opacity 0.5s ease-in-out;
+`;
 
 const StyledApp = styled.div`
   text-align: center;
   padding: 20px;
+  background-color: #e9e9e9; /* Replace with your desired background color */
 `;
 
 const Header = styled.h1`
   margin-bottom: 20px;
+  color: #333; /* Replace with your desired color */
 `;
 
 const SubjectForm = styled.form`
@@ -33,6 +42,11 @@ const AddButton = styled.button`
   color: #fff;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #45a049;
+  }
 `;
 
 const SubjectList = styled.div`
@@ -48,10 +62,16 @@ const SubjectCard = styled.div`
   background-color: #f5f5f5;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 const SubjectName = styled.h3`
-  margin-bottom: 10px;
+  /* ...existing styles... */
+  font-weight: 600;
 `;
 
 const CounterWrapper = styled.div`
@@ -97,11 +117,22 @@ const ProgressBar = styled.div`
   transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
 `;
 
-
+const TotalClassesNeeded = styled.p`
+  margin-top: 10px;
+  font-size: 14px;
+`;
 
 const App = () => {
   const [subjects, setSubjects] = useState([]);
   const [newSubject, setNewSubject] = useState('');
+
+  const [showApp, setShowApp] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowApp(true);
+    }, 500);
+  }, []);
 
   const handleInputChange = (event) => {
     setNewSubject(event.target.value);
@@ -207,7 +238,13 @@ const App = () => {
     setSubjects(updatedSubjects);
   };
 
+  const calculateTotalClassesNeeded = (attended, desiredPercentage) => {
+    const totalClassesNeeded = Math.ceil((attended / (desiredPercentage / 100)) - attended);
+    return totalClassesNeeded < 0 ? 0 : totalClassesNeeded;
+  };
+
   return (
+    <AppContainer show={showApp}>
     <StyledApp>
       <Header>Attendance Tracker</Header>
       <SubjectForm onSubmit={handleAddSubject}>
@@ -253,10 +290,18 @@ const App = () => {
               <ProgressBar percentage={subject.percentage} />
             </ProgressBarWrapper>
             <CounterLabel>Percentage: {subject.percentage}%</CounterLabel>
+            {subject.percentage > 75 ? (
+              <p>You have more than 75% attendance!</p>
+            ) : (
+              <TotalClassesNeeded>
+                Attend {calculateTotalClassesNeeded(subject.classesAttended, 75)} more classes to achieve 75% attendance.
+              </TotalClassesNeeded>
+            )}
           </SubjectCard>
         ))}
       </SubjectList>
     </StyledApp>
+    </AppContainer>
   );
 };
 
