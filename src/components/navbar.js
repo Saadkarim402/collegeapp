@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
 const Nav = styled.nav`
-  background: white;
+  background: black;
   padding: 20px;
   display: flex;
   height: 1px;
@@ -44,13 +44,13 @@ const NavItem = styled.li`
 `;
 
 const NavLink = styled(Link)`
-  color: black;
+  color: #fca311;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease-in-out, transform 0.2s ease;
+  transition: color 0.7s ease-in-out, transform 0.2s ease;
 
   &:hover {
-    color: orange;
+    color: #e57600;
     text-decoration-color: antiquewhite;
   }
 `;
@@ -62,7 +62,7 @@ const Dropdown = styled.div`
   display: none;
   opacity: 0;
   transform: translateY(-10px);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
 
   ${NavItem}:hover & {
     display: block;
