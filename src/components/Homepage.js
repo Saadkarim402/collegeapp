@@ -48,20 +48,23 @@ const AddNoteForm = styled.div`
   align-items: center;
 
   & > input[type='text'],
-  & > input[type='date'],
-  & > input[type='time'] {
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    width: 100%;
+& > input[type='date'],
+& > input[type='time'] {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
 
-    @media (min-width: 600px) {
-      width: auto;
-    }
+  @media (min-width: 600px) {
+    width: auto;
   }
+  &:hover {
+    border-color: blue;
+  }
+}
 
   & > textarea {
     flex-grow: 1;

@@ -6,6 +6,7 @@ const Nav = styled.nav`
   background: white;
   padding: 20px;
   display: flex;
+  height: 1px;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -86,15 +87,10 @@ const DropdownItem = styled(NavLink)`
 `;
 
 const HamburgerIcon = styled.div`
-  display: none;
   cursor: pointer;
   padding: 10px;
   position: relative;
-
-  @media (max-width: 768px) {
-    display: block;
-    z-index: 1;
-  }
+  
 `;
 
 const slideDown = keyframes`
