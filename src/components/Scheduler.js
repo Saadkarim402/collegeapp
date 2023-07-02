@@ -3,6 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
 
+
 const features = [
   {
     name: "Feature 1",
@@ -118,9 +119,9 @@ const Imj=styled.div`
 `
 
 const HomeContainer = styled.div`
-  padding: 100px;
+  padding: 70px;
   text-align: center;
-  background-color: blueviolet;
+  background-color: black;
   display: flex;
   align-items: center;
   margin-bottom: 0%;
@@ -130,7 +131,8 @@ const HomeContainer = styled.div`
 const AppTitle = styled.h1`
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  
 `;
 
 const AppDescription = styled.p`
@@ -155,8 +157,62 @@ const ExploreButton = styled.button`
   }
 `;
 
+const FooterContainer = styled.footer`
+  background-color: black;
+  padding: 20px;
+  text-align: center;
+`;
+
+const FooterText = styled.p`
+  font-size: 14px;
+  color: white;
+`;
+
+const FooterLink = styled.a`
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+
+const AboutContainer = styled.section`
+  background-color: black;
+  padding: 40px;
+`;
+
+const AboutTitle = styled.h2`
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+`;
+
+const AboutText = styled.p`
+  font-size: 16px;
+  color: white;
+  line-height: 1.5;
+`;
+
+const ProfileLinks = styled.div`
+  margin-top: 20px;
+`;
+
+const ProfileLink = styled.a`
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+
   return (
     <>
+    
     <HomeContainer>
     <Info>
     <AppTitle>Bithub</AppTitle>
@@ -168,7 +224,7 @@ const ExploreButton = styled.button`
     <ExploreButton>Explore</ExploreButton>
     </Info>
     <Imj>
-      <h1>jasdasdasdadasdaasdasdasdasdasdasdsdasdasdad</h1>
+      <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSwC1hnl00aniV_S-tcbR2_SKERFBv0ASnet48EUpaqJmtN0YO1"width="400" height="300" alt="Image"></img>
     </Imj>
   </HomeContainer>
 
@@ -192,6 +248,39 @@ const ExploreButton = styled.button`
         </Carousel>
       </CarouselContainer>
     </AppContainer>
+
+    <AboutContainer>
+      <AboutTitle>About Me</AboutTitle>
+      <AboutText>
+        Hi, I'm Saad Karim, the founder of this app. I have always been passionate about technology and how it can improve people's lives. As a developer and entrepreneur, I wanted to create a platform that solves real-world problems and enhances the user experience.
+      </AboutText>
+      <AboutText>
+        With this app, my aim is to provide a seamless and intuitive solution that meets the needs of our users. I believe in the power of innovation and constantly strive to incorporate the latest technologies and best practices into our products.
+      </AboutText>
+      <AboutText>
+        Thank you for being a part of our journey. We are dedicated to delivering a high-quality app that makes a positive impact on your life. Feel free to reach out to us if you have any questions, suggestions, or feedback.
+      </AboutText>
+      <ProfileLinks>
+        <ProfileLink href="https://www.linkedin.com/in/saadkarim" target="_blank" rel="noopener noreferrer">LinkedIn</ProfileLink>
+        <ProfileLink href="https://github.com/saadkarim" target="_blank" rel="noopener noreferrer">GitHub</ProfileLink>
+        <ProfileLink href="https://twitter.com/saadkarim" target="_blank" rel="noopener noreferrer">Twitter</ProfileLink>
+      </ProfileLinks>
+    </AboutContainer>
+
+    <FooterContainer>
+      <FooterText>© 2023 Bit Hub. All rights reserved.</FooterText>
+      <FooterText>
+        <FooterLink href="/privacy">Privacy Policy</FooterLink> |{' '}
+        <FooterLink href="/terms">Terms of Service</FooterLink> |{' '}
+        <FooterLink href="/contact">Contact Us</FooterLink>
+      </FooterText>
+    </FooterContainer>
+
+
+    
+
+
+
     </>
   );
 }

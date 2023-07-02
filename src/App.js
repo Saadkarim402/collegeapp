@@ -8,6 +8,7 @@ import Scheduler from "./components/Scheduler";
 import MarksManager from "./components/MarksManager";
 import Attendance from "./components/Attendance";
 import Timetable from "./components/Timetable";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/marks" element={<MarksManager />} />
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/timetable" element={<Timetable />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
       

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
 
 const Nav = styled.nav`
   background: black;
@@ -90,7 +90,6 @@ const HamburgerIcon = styled.div`
   cursor: pointer;
   padding: 10px;
   position: relative;
-  
 `;
 
 const slideDown = keyframes`
@@ -122,13 +121,14 @@ const HamburgerMenu = styled.div`
   width: 100%;
   height: 100%;
   background: white;
-  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
   z-index: 9999;
-  animation: ${({ isOpen }) => (isOpen ? slideDown : slideUp)} 0.5s ease-in-out forwards;
+  animation: ${({ isOpen }) => (isOpen ? slideDown : slideUp)} 0.5s ease-in-out
+    forwards;
 
   @media (min-width: 769px) {
     display: none;
@@ -156,6 +156,11 @@ function Navbar() {
         <NavItem>
           <NavLink to="/" onClick={handleLinkClick}>
             Home
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="/Dashboard" onClick={handleLinkClick}>
+            Dashboard
           </NavLink>
         </NavItem>
         <NavItem>
